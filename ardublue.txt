@@ -1,0 +1,50 @@
+#include "DHT.h"
+
+#include <SoftwareSerial.h>
+
+ 
+
+SoftwareSerial BTserial(4,5);
+
+#define DHTPIN 2
+
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+ 
+
+void setup() {
+
+  Serial.begin(9600);
+
+  BTserial.begin(9600);
+
+}
+
+ 
+
+void loop() {
+
+  int h = dht.readHumidity();
+
+  int t = dht.readTemperature();
+
+  BTserial.print("습도: ");
+
+  BTserial.print(h);
+
+  BTserial.print("% ");
+
+  BTserial.print("온도: ");
+
+  BTserail.print(t);
+
+  BTserail.print(" C");
+
+  delay(1000);
+
+}
+
+
+http://ael.chungbuk.ac.kr/lectures/undergraduate/microwave-engineering/2017-1/lab/lab09-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4%ED%86%B5%EC%8B%A0.htm 
